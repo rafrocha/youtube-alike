@@ -1,9 +1,12 @@
 import React from "react";
 import "./VideoItem.css";
 
-const VideoItem = ({ video }) => {
+const VideoItem = ({ video, onSelectVideo }) => {
+    const makeOnVideoSelect = () => {
+        onSelectVideo(video);
+    };
     return (
-        <div className="video-item item">
+        <div className="video-item item" onClick={makeOnVideoSelect}>
             <img
                 className="ui image"
                 alt="video"
@@ -11,7 +14,6 @@ const VideoItem = ({ video }) => {
             />
             <div className="content">
                 <div className="header">{video.snippet.title}</div>
-                <div>{video.snippet.description}</div>
             </div>
         </div>
     );
